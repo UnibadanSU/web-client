@@ -1,10 +1,15 @@
+import styled from 'styled-components'
+
 const Card = () => {
     return (
-        <div className={styles.container}>
+        <Container>
 
-        </div>
+        </Container>
     )
 }
 
 export default Card;
 
+const Container = styled.div`
+  padding: 0 2rem;
+`;
