@@ -5,7 +5,7 @@ const Layout = ({ children }) => {
     return (
         <div>
             <Navigation />
-            <div>
+            <div className="relative top-14">
                 {children}
             </div>
             <Footer />

@@ -4,7 +4,11 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      borderRadius: {
+        circle: '50%'
+      }
+    },
     fontFamily: {
       sans: ['Roboto', 'sans-serif']
     }

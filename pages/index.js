@@ -1,11 +1,14 @@
 import Layout from "../components/common/Layout";
+import NewsCarousel from "../components/pages/index/NewsCarousel";
 
 const Home = () => {
   return (
     <Layout>
-      Hello
+      <section>
+        <NewsCarousel />
+      </section>
     </Layout>
-  )
-}
+  );
+};
 
 export default Home;
