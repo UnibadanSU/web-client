@@ -5,12 +5,19 @@ module.exports = {
   ],
   theme: {
     extend: {
+      colors: {
+        'custom-gray': 'rgba(255, 255, 255, 0.5)',
+        'custom-red': '#E30000',
+      },
+      backgroundImage: {
+        'red-gradient': 'linear-gradient(19.23deg, #010101 -45.98%, #E30000 141.31%)'
+      },
       borderRadius: {
         circle: '50%'
       }
     },
     fontFamily: {
-      sans: ['Roboto', 'sans-serif']
+      sans: ['Oswald', 'sans-serif']
     }
   },
   plugins: [],
