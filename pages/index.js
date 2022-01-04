@@ -6,6 +6,13 @@ const Home = () => {
     <Layout>
       <section>
         <NewsCarousel />
+        <div style={{
+          width: "100%",
+          height: "60px",
+          backgroundColor: "black",
+          borderBottomLeftRadius: "26px",
+          borderBottomRightRadius: "26px",
+        }}/>
       </section>
     </Layout>
   );
