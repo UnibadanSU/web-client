@@ -7,8 +7,8 @@ export default function NewsCarousel() {
   return (
     <div>
       <Carousel>
-        {count.map((item, i) => (
-          <Headline key={i} />
+        {count.map((item, index) => (
+          <Headline key={index} />
         ))}
       </Carousel>
     </div>
