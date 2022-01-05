@@ -1,20 +1,48 @@
 import React from "react";
-import Carousel from "framer-motion-carousel";
+// Import Swiper React components
+import {Swiper, SwiperSlide} from "swiper/react";
 
-export default function NewsCarousel() {
-  const count = [1, 2, 3, 4];
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/effect-creative"
+
+
+// import Swiper core and required modules
+import SwiperCore, {EffectCreative} from 'swiper';
+
+// install Swiper modules
+SwiperCore.use([EffectCreative]);
+
+
+export default function App() {
+
 
   return (
-    <div>
-      <Carousel>
-        {count.map((item, index) => (
-          <Headline key={index} />
-        ))}
-      </Carousel>
-    </div>
-  );
-}
+    <>
 
+
+      <Swiper grabCursor={true} effect={'creative'} creativeEffect={{
+        "prev": {
+          "shadow": true,
+          "translate": [
+            0,
+            0,
+            -400
+          ]
+        },
+        "next": {
+          "translate": [
+            "100%",
+            0,
+            0
+          ]
+        }
+      }} className="mySwiper">
+        <SwiperSlide><Headline/></SwiperSlide><SwiperSlide><Headline/></SwiperSlide><SwiperSlide><Headline /></SwiperSlide><SwiperSlide><Headline/></SwiperSlide><SwiperSlide><Headline/></SwiperSlide>
+      </Swiper>
+    </>
+  )
+}
 const Headline = () => {
   return (
     <>
