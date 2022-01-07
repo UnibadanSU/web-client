@@ -13,8 +13,7 @@ export default Card;
 const Container = styled.div`
   width: 180px;
   height: 140px;
-  margin-left: 20px;
-  margin-top: 10px;
+  margin-top: 12px;
   border-radius: 24px;
 `;
 

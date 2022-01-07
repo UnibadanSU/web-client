@@ -12,6 +12,10 @@ const Home = () => {
       <CardContainer>
         <Card />
         <Card />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
       </CardContainer>
     </Layout>
   );
@@ -20,6 +24,8 @@ const Home = () => {
 export default Home;
 
 const CardContainer = styled.div`
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  gap: 8px;
+  grid-template-columns: 50% 50%;
+  justify-content: center;
 `;
