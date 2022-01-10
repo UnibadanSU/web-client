@@ -65,7 +65,7 @@ const Headline = () => {
           width: "100%",
           height: "300px",
           backgroundImage:
-            'linear-gradient(rgba(0, 0, 0, 0.527), rgba(0, 0, 0, 0.5)),url("/unsplash_1.png")',
+            'linear-gradient(rgba(0, 0, 0, 0.527), rgba(0, 0, 0, 0.5)),url("/ui.png")',
           borderBottomLeftRadius: "36px",
           borderBottomRightRadius: "36px",
         }}
