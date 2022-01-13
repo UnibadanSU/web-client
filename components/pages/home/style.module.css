@@ -1,0 +1,50 @@
+.SliderWrapper :global .swiper-pagination-bullet {
+  background: #fff;
+  width: 0.7rem;
+  height: 0.7rem;
+  border-radius: 50%;
+  opacity: 1;
+}
+
+.SliderWrapper :global .swiper-pagination-bullet-active {
+  background-color: red;
+  width: 0.7rem;
+  height: 0.7rem;
+  border-radius: 50%;
+}
+
+.SliderWrapper :global .swiper-button-prev {
+  transform: scale(0.6);
+  background-color: white;
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  color: #878787 !important;
+}
+
+.SliderWrapper :global .swiper-button-next {
+  transform: scale(0.6);
+  background-color: white;
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  color: #878787 !important;
+}
+
+@media screen and (min-width: 1080px) {
+  .SliderWrapper :global .swiper-button-prev {
+    transform: scale(0.7);
+    background-color: white;
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+  }
+  
+  .SliderWrapper :global .swiper-button-next {
+    transform: scale(0.7);
+    background-color: white;
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+  }  
+}

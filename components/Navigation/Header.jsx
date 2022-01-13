@@ -1,20 +1,21 @@
 import React from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { HiOutlineSearch } from "react-icons/hi";
 
 export default function Header({ openNavMenu }) {
   return (
-    <div className="fixed flex items-center justify-between top-0 w-full h-14 pt-1 pl-3 pr-0 bg-black">
+    <div className="fixed flex items-center justify-between top-0 w-full h-14 pt-1 pl-3 pr-0 bg-black z-50">
       <div>
-        <Link passHref={true} href="/">
-          <Image
-            width="132"
-            height="39"
-            src="/ui-su-logo.png"
-            alt="ui-su-logo"
-            className="items-center"
-          />
+        <Link href="/">
+          <a>
+            <img
+              width="132"
+              height="39"
+              src="/ui-su-logo.png"
+              alt="ui-su-logo"
+              className="items-center"
+            />
+          </a>
         </Link>
       </div>
       <div>

@@ -19,19 +19,21 @@ export default function NavigationMenu({ shouldOpen, closeNavMenu }) {
         </button>
         <div className="mx-6">
           <div className="flex w-full justify-center mt-10 mb-5">
-            <Link passHref={true} href="/">
-              <Image
-                width="182"
-                height="49"
-                src="/ui-su-logo.png"
-                alt="ui-su-logo"
-                className="items-center"
-              />
+            <Link href="/">
+              <a>
+                <Image
+                  width="182"
+                  height="49"
+                  src="/ui-su-logo.png"
+                  alt="ui-su-logo"
+                  className="items-center"
+                />
+              </a>
             </Link>
           </div>
           <div className="flex w-full justify-center relative">
             <input
-              className="bg-transparent border border-custom-gray rounded-3xl text-white placeholder-custom-gray focus:border-white outline-none transition-colors text-lg pl-3 pr-12 py-2 w-full"
+              className="bg-transparent border border-custom-gray rounded-3xl text-white placeholder-custom-gray focus:border-white outline-none transition-colors text-lg pl-3 pr-12 py-2 w-full focus:placeholder-white"
               type="text"
               placeholder="Search"
             />
@@ -46,24 +48,34 @@ export default function NavigationMenu({ shouldOpen, closeNavMenu }) {
             />
           </div>
           <div className="w-full flex flex-col mt-6 text-white">
-            <a className="text-lg py-2 border-b border-custom-gray" href="#">
-              Home
-            </a>
-            <a className="text-lg py-2 border-b border-custom-gray" href="#">
-              Trending News and Events
-            </a>
-            <a className="text-lg py-2 border-b border-custom-gray" href="#">
-              The Executive Corner
-            </a>
-            <a className="text-lg py-2 border-b border-custom-gray" href="#">
-              The SU Representative Council
-            </a>
-            <a className="text-lg py-2 border-b border-custom-gray" href="#">
-              Student Union Press Corner
-            </a>
-            <a className="text-lg py-2 border-b border-custom-gray" href="#">
-              About UI Student Union
-            </a>
+            <Link href="/">
+              <a className="text-lg py-2 border-b border-custom-gray">Home</a>
+            </Link>
+            <Link href="/trending">
+              <a className="text-lg py-2 border-b border-custom-gray">
+                Trending News and Events
+              </a>
+            </Link>
+            <Link href="/executives">
+              <a className="text-lg py-2 border-b border-custom-gray">
+                The Executive Corner
+              </a>
+            </Link>
+            <Link href="/representatives">
+              <a className="text-lg py-2 border-b border-custom-gray">
+                The SU Representative Council
+              </a>
+            </Link>
+            <Link href="/su_corner">
+              <a className="text-lg py-2 border-b border-custom-gray">
+                Student Union Press Corner
+              </a>
+            </Link>
+            <Link href="/about">
+              <a className="text-lg py-2 border-b border-custom-gray">
+                About UI Student Union
+              </a>
+            </Link>
           </div>
           <div className="text-white text-center my-10">
             <div>Connect with UI SU</div>
