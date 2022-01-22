@@ -6,9 +6,8 @@ import { getArticle, getArticles } from "../../api/articles";
 export default function ({ article }) {
   console.log(article);
   const seo = {
-    title: "University of Ibadan Student's Union | News",
-    description:
-      "The official news page of the University of Ibadan Student's Union",
+    title: article.attributes.title,
+    description: article.attributes.description,
   };
 
   return (
