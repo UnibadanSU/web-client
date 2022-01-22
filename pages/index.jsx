@@ -1,10 +1,10 @@
-import Card from "../components/Card";
 import Layout from "../components/common/Layout";
 import NewsCarousel from "../components/pages/home/NewsCarousel";
-import CardContainer from "../components/pages/home/CardContainer";
+import Articles from "../components/pages/home/Articles";
 import BannerSection from "../components/common/bannersection";
+import { getArticles } from "../api/articles";
 
-const Home = () => {
+const Home = ({ articles }) => {
   const seo = {
     title: "University of Ibadan Student's Union",
     description:
@@ -16,19 +16,19 @@ const Home = () => {
       <div className="mb-20">
         <NewsCarousel />
         <BannerSection text="Trending news and events" />
-        <CardContainer>
-          <Card headline="Motorbike belonging to Late Michael Jackson to be sold for $5.8 Million" />
-          <Card headline="Motorbike belonging to Late Michael Jackson to be sold for $5.8 Million" />
-          <Card headline="Motorbike belonging to Late Michael Jackson to be sold for $5.8 Million" />
-          <Card headline="Motorbike belonging to Late Michael Jackson to be sold for $5.8 Million" />
-          <Card headline="Motorbike belonging to Late Michael Jackson to be sold for $5.8 Million" />
-          <Card headline="Motorbike belonging to Late Michael Jackson to be sold for $5.8 Million" />
-          <Card headline="Motorbike belonging to Late Michael Jackson to be sold for $5.8 Million" />
-          <Card headline="Motorbike belonging to Late Michael Jackson to be sold for $5.8 Million" />
-        </CardContainer>
+        <Articles articles={articles} />
       </div>
     </Layout>
   );
 };
+
+export async function getStaticProps() {
+  const data = await getArticles();
+  return {
+    props: {
+      articles: data ? data.data : [],
+    },
+  };
+}
 
 export default Home;

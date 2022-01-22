@@ -1,23 +1,29 @@
 import Link from "next/link";
-import NewsBadge from "../ui/NewsBadge";
+import { getStrapiMedia } from "../../../lib/media";
+import NewsBadge from "../../ui/NewsBadge";
 
-const Card = ({ headline }) => {
+const Article = ({ article }) => {
+  // log the article prop to the console to see its structure
+  let imageUrl = article.image.data.attributes;
+  if (imageUrl) {
+    imageUrl = getStrapiMedia(imageUrl);
+  }
+
   return (
-    <Link passHref href="/news">
+    <Link passHref href={`/news/${encodeURIComponent(article.slug)}`}>
       <a>
         <div className="h-[180px] mt-[12px]">
           <div
             style={{
               backgroundSize: "100% 100%",
               backgroundPosition: "top center",
-              backgroundImage:
-                "linear-gradient(rgba(0, 0, 0, 0.527), rgba(0, 0, 0, 0.5)), url('/unsplash_1.png')",
+              backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.527), rgba(0, 0, 0, 0.5)), url('${imageUrl}')`,
             }}
             className="flex flex-row gap-[6px] w-full h-full text-white bg-no-repeat bg-center rounded-[16px] p-[20px]"
           >
             <NewsBadge title="News" />
             <div className="text-[14px] font-bold relative bottom-[4px]">
-              {headline}
+              {article.title}
             </div>
           </div>
         </div>
@@ -26,4 +32,4 @@ const Card = ({ headline }) => {
   );
 };
 
-export default Card;
+export default Article;
