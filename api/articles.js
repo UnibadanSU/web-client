@@ -7,7 +7,7 @@ export const getArticles = async () => {
     );
     return response.data;
   } catch {
-    throw new Error("An error occurred");
+    return new Error(Error, "An error occurred");
   }
 };
 
@@ -18,6 +18,6 @@ export const getArticle = async (slug) => {
     );
     return response.data;
   } catch {
-    throw new Error("An error occurred");
+    return new Error(Error, "An error occurred");
   }
 };

@@ -1,7 +1,7 @@
 import axios from "axios";
 
-const baseURL = process.env.BASE_API_URL;
-const authToken = process.env.AUTH_TOKEN;
+const baseURL = process.env.NEXT_PUBLIC_API_URL;
+const authToken = process.env.NEXT_PUBLIC_AUTH_TOKEN;
 export const requestInstance = axios.create({
   baseURL,
   headers: {
