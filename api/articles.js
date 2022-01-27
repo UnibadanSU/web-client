@@ -6,9 +6,7 @@ export const getArticles = async () => {
       "/articles?filters[status][$eq]=true&populate=%2A"
     );
     return response.data;
-  } catch {
-    return new Error(Error, "An error occurred");
-  }
+  } catch (error) {}
 };
 
 export const getArticle = async (slug) => {
