@@ -4,7 +4,7 @@ import Seo from "../seo";
 
 const Layout = ({ children, seo }) => {
   return (
-    <div>
+    <div className="min-h-[100vh] flex flex-col">
       <Seo seo={seo} />
       <Navigation />
       <div className="relative top-14">{children}</div>
