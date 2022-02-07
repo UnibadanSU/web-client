@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { HiOutlineSearch } from "react-icons/hi";
 
 export default function Header({ openNavMenu }) {
@@ -8,13 +9,7 @@ export default function Header({ openNavMenu }) {
       <div>
         <Link href="/">
           <a>
-            <img
-              width="132"
-              height="39"
-              src="/ui-su-logo.png"
-              alt="ui-su-logo"
-              className="items-center"
-            />
+            <Image src="/ui-su-logo.png" width="132" height="39" alt="UI SU" />
           </a>
         </Link>
       </div>

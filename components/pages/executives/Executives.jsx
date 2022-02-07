@@ -1,43 +1,13 @@
 import { v4 as uuid } from "uuid";
 import SUProfile from "../../ui/SUProfile";
 
-export default function Executives() {
-  const executives = [
-    {
-      name: "Adewole Adeyinka (MASCOT)",
-      position: "SU President",
-    },
-    {
-      name: "Adewole Adeyinka (MASCOT)",
-      position: "SU President",
-    },
-    {
-      name: "Adewole Adeyinka (MASCOT)",
-      position: "SU President",
-    },
-    {
-      name: "Adewole Adeyinka (MASCOT)",
-      position: "SU President",
-    },
-    {
-      name: "Adewole Adeyinka (MASCOT)",
-      position: "SU President",
-    },
-    {
-      name: "Adewole Adeyinka (MASCOT)",
-      position: "SU President",
-    },
-  ];
+export default function Executives({ executives }) {
   return (
-    <div>
+    <div className="my-20">
       <div className="grid grid-cols-2 gap-[12px] py-[20px] mb-[40px] align-middle">
         {executives &&
-          executives.map(({ name, position }) => (
-            <SUProfile
-              key={uuid()}
-              name={name}
-              position={position}
-            />
+          executives.map((executive) => (
+            <SUProfile key={uuid()} profile={executive.attributes} />
           ))}
       </div>
     </div>

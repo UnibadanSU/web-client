@@ -14,7 +14,7 @@ const Home = ({ articles }) => {
   return (
     <Layout seo={seo}>
       <div className="mb-20">
-        <NewsCarousel />
+        <NewsCarousel articles={articles} />
         <BannerSection text="Trending news and events" />
         <Articles articles={articles} />
       </div>

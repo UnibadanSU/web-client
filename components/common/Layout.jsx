@@ -7,7 +7,7 @@ const Layout = ({ children, seo }) => {
     <div className="min-h-[100vh] flex flex-col">
       <Seo seo={seo} />
       <Navigation />
-      <div className="relative top-14">{children}</div>
+      <div className="relative top-14 mb-8">{children}</div>
       <Footer />
     </div>
   );

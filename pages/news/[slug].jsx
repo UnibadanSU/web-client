@@ -4,10 +4,15 @@ import Article from "../../components/pages/news/Article";
 import { getArticle, getArticles } from "../../api/articles";
 
 export default function ({ article }) {
-  console.log(article);
+  let imageUrl = article.image?.data.attributes;
+  if (imageUrl) {
+    imageUrl = getStrapiMedia(imageUrl);
+  }
+
   const seo = {
     title: article.attributes.title,
     description: article.attributes.description,
+    shareImage: imageUrl || "",
   };
 
   return (

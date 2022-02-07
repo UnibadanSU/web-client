@@ -3,7 +3,6 @@ import { getStrapiMedia } from "../../../lib/media";
 import NewsBadge from "../../ui/NewsBadge";
 
 const Article = ({ article }) => {
-  // log the article prop to the console to see its structure
   let imageUrl = article.image.data.attributes;
   if (imageUrl) {
     imageUrl = getStrapiMedia(imageUrl);
@@ -12,7 +11,7 @@ const Article = ({ article }) => {
   return (
     <Link passHref href={`/news/${encodeURIComponent(article.slug)}`}>
       <a>
-        <div className="h-[180px] mt-[12px]">
+        <div className="h-[180px] mt-[12px] hover:opacity-90 transition-opacity duration-500 ease-in-out">
           <div
             style={{
               backgroundSize: "100% 100%",

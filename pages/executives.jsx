@@ -1,18 +1,29 @@
 import Layout from "../components/common/Layout";
 import Executives from "../components/pages/executives/Executives";
 import PageIntro from "../components/ui/PageIntro";
+import { getExecutives } from "../api/executives";
 
-export default function () {
+export default function ExecutivesPage({ executives }) {
   const seo = {
     title: "University of Ibadan Student's Union | Executive Council",
-    description:
-      "The official website of the University of Ibadan Student's Union",
+    description: "The Executives of the University of Ibadan Student's Union",
   };
 
   return (
     <Layout seo={seo}>
-      <PageIntro text="meet your executives" />
-      <Executives />
+      <div className="my-10">
+        <PageIntro text="meet your executives" />
+        <Executives executives={executives} />
+      </div>
     </Layout>
   );
+}
+
+export async function getStaticProps() {
+  const data = await getExecutives();
+  return {
+    props: {
+      executives: data ? data.data : [],
+    },
+  };
 }

@@ -2,7 +2,7 @@ import Layout from "../components/common/Layout";
 import PageIntro from "../components/ui/PageIntro";
 import TrendingNews from "../components/pages/trending/TrendingNews";
 
-export default function () {
+export default function SU_Corner() {
   const seo = {
     title: "University of Ibadan Student's Union | SU Corner",
     description:

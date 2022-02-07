@@ -31,7 +31,7 @@ export default function NavigationMenu({ shouldOpen, closeNavMenu }) {
               </a>
             </Link>
           </div>
-          <div className="flex w-full justify-center relative">
+          {/* <div className="flex w-full justify-center relative">
             <input
               className="bg-transparent border border-custom-gray rounded-3xl text-white placeholder-custom-gray focus:border-white outline-none transition-colors text-lg pl-3 pr-12 py-2 w-full focus:placeholder-white"
               type="text"
@@ -46,7 +46,7 @@ export default function NavigationMenu({ shouldOpen, closeNavMenu }) {
               }}
               className="text-white absolute"
             />
-          </div>
+          </div> */}
           <div className="w-full flex flex-col mt-6 text-white">
             <Link href="/">
               <a className="text-lg py-2 border-b border-custom-gray">Home</a>
@@ -66,11 +66,11 @@ export default function NavigationMenu({ shouldOpen, closeNavMenu }) {
                 The SU Representative Council
               </a>
             </Link>
-            <Link href="/su_corner">
+            {/* <Link href="/su_corner">
               <a className="text-lg py-2 border-b border-custom-gray">
                 Student Union Press Corner
               </a>
-            </Link>
+            </Link> */}
             <Link href="/about">
               <a className="text-lg py-2 border-b border-custom-gray">
                 About UI Student Union

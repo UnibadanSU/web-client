@@ -1,11 +1,19 @@
-import ReactMarkDown from "react-markdown";
+import Markdown from "markdown-to-jsx";
 import { DateTime } from "luxon";
 import NewsBadge from "../../ui/NewsBadge";
 import { getStrapiMedia } from "../../../lib/media";
 
 export default function Article({ article }) {
-  const dt = new DateTime(article.publishedAt);
-  const publishedAt = dt.toLocaleString(DateTime.DATE_FULL);
+  let timePublished = article.timePublished.split("-");
+  const dt = new DateTime(new Date());
+
+  let publishedAt = dt
+    .set({
+      year: parseInt(timePublished[0]),
+      month: parseInt(timePublished[1]),
+      day: parseInt(timePublished[2]),
+    })
+    .toFormat("LLL dd, yyyy");
 
   const transformImage = (src) => {
     let image = { url: src };
@@ -16,25 +24,33 @@ export default function Article({ article }) {
     <div className="mx-[16px] mt-[25px] lg:mt-[40px] mb-[80px] lg:mx-[300px]">
       <div className="flex flex-row items-center space-x-[6px] font-bold">
         <NewsBadge title="news" />
-        <NewsTime date={publishedAt} />
+        <NewsTime time={publishedAt} />
       </div>
       <Headline>{article.title}</Headline>
       <TextBlock>
-        <ReactMarkDown transformImageUri={(src) => transformImage(src)}>
+        <Markdown
+          options={{
+            overrides: {
+              img: {
+                props: {
+                  className: "w-full",
+                },
+              },
+            },
+          }}
+        >
           {article.content}
-        </ReactMarkDown>
+        </Markdown>
       </TextBlock>
     </div>
   );
 }
 
 const Headline = ({ children }) => {
-  return (
-    <h1 className="font-bold text-[21px] mt-[11px] mb-[16px]">{children}</h1>
-  );
+  return <h1 className="font-bold text-[2.3rem] mt-[11px]">{children}</h1>;
 };
 
-const NewsTime = ({ date }) => <div className="text-[12px]">{date}</div>;
+const NewsTime = ({ time }) => <div className="text-[12px]">{time}</div>;
 
 const TextBlock = ({ children }) => (
   <p className="text-justify text-[15px]">{children}</p>
