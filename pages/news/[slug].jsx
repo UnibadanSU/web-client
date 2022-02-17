@@ -25,7 +25,7 @@ export default function ({ article }) {
 
 export async function getStaticPaths() {
   let data = await getArticles();
-  let articles = data.data;
+  let articles = data;
   let paths = articles.map((article) => ({
     params: {
       slug: article.attributes.slug,

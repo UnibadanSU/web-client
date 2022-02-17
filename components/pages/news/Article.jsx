@@ -47,7 +47,7 @@ export default function Article({ article }) {
 }
 
 const Headline = ({ children }) => {
-  return <h1 className="font-bold text-[2.3rem] mt-[11px]">{children}</h1>;
+  return <h1 className="font-bold text-[1.6rem] mt-[11px] mb-[18px]">{children}</h1>;
 };
 
 const NewsTime = ({ time }) => <div className="text-[12px]">{time}</div>;

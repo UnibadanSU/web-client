@@ -80,7 +80,7 @@ export default function NavigationMenu({ shouldOpen, closeNavMenu }) {
           <div className="text-white text-center my-10">
             <div>Connect with UI SU</div>
             <div className="flex flex-row justify-center items-center space-x-3 mt-3">
-              <a href="#">
+              <a href="https://facebook.com/TheOfficialUISU">
                 <Image
                   src="/facebook.svg"
                   width="30px"
@@ -88,7 +88,15 @@ export default function NavigationMenu({ shouldOpen, closeNavMenu }) {
                   alt="facebook"
                 />
               </a>
-              <a href="#">
+              <a href="https://twitter.com/studentsunionui">
+                <Image
+                  src="/twitter.svg"
+                  width="30px"
+                  height="30px"
+                  alt="twitter"
+                />
+              </a>
+              <a href="https://www.instagram.com/officialuisu/">
                 <Image
                   src="/instagram.svg"
                   width="30px"
@@ -96,7 +104,7 @@ export default function NavigationMenu({ shouldOpen, closeNavMenu }) {
                   alt="instagram"
                 />
               </a>
-              <a href="#">
+              <a href="https://api.whatsapp.com/send/?phone=2348120122332&text&app_absent=0">
                 <Image
                   src="/whatsapp.svg"
                   width="30px"
