@@ -3,17 +3,8 @@ import NewsCarousel from "../components/pages/home/NewsCarousel";
 import Articles from "../components/pages/home/Articles";
 import BannerSection from "../components/common/bannersection";
 import { getArticles } from "../api/articles";
-import { useEffect } from "react";
 
 const Home = ({ articles }) => {
-  useEffect(() => {
-    const fetchData = async () => {
-      const data = await getArticles();
-      console.log(data)
-    }
-    fetchData();
-  }, [])
-  
   const seo = {
     title: "University of Ibadan Student's Union",
     description:
