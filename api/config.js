@@ -2,7 +2,7 @@ import axios from "axios";
 
 const baseURL =
   process.env.NODE_ENV === "development"
-    ? "http://localhost:1337/api"
+    ? "https://uisu-web-cms.herokuapp.com/api"
     : process.env.NEXT_PUBLIC_BASE_API_URL;
 const authToken =
   process.env.NODE_ENV === "development"
