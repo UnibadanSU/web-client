@@ -3,7 +3,7 @@ import ArticleCover from "../../components/pages/news/ArticleCover";
 import Article from "../../components/pages/news/Article";
 import { getArticle, getAllArticles } from "../../api/articles";
 
-export default function ({ article }) {
+export default function News({ article }) {
   let imageUrl = article.image?.data.attributes;
   if (imageUrl) {
     imageUrl = getStrapiMedia(imageUrl);
