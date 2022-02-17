@@ -1,7 +1,7 @@
 import Layout from "../../components/common/Layout";
 import ArticleCover from "../../components/pages/news/ArticleCover";
 import Article from "../../components/pages/news/Article";
-import { getArticle, getArticles } from "../../api/articles";
+import { getArticle, getAllArticles } from "../../api/articles";
 
 export default function ({ article }) {
   let imageUrl = article.image?.data.attributes;
@@ -24,7 +24,7 @@ export default function ({ article }) {
 }
 
 export async function getStaticPaths() {
-  let data = await getArticles();
+  let data = await getAllArticles();
   let articles = data;
   let paths = articles.map((article) => ({
     params: {

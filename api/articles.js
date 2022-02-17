@@ -36,7 +36,7 @@ export const getAllArticles = async () => {
       "/articles";
     const response = await requestInstance.get(url);
     if (response.data) {
-      let articles = null;
+      let articles = [];
       const {data} = response.data;
       if (data && data.length > 0){
         articles = data;
