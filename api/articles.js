@@ -6,7 +6,9 @@ export const getArticles = async () => {
       "/articles?filters[status][$eq]=true&populate=%2A&asc&sort[0]=id%3Adesc&?pagination[page]=1&pagination[pageSize]=10"
     );
     return response.data;
-  } catch (error) {}
+  } catch (error) {
+    return new Error(Error, "An error occured")
+  }
 };
 
 export const getArticle = async (slug) => {
