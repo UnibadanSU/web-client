@@ -25,7 +25,7 @@ export default function News({ article }) {
 
 export async function getStaticPaths() {
   let data = await getAllArticles();
-  let articles = data ? data : [];
+  let articles = Array.isArray(data) ? data : [];
   let paths = articles.map((article) => ({
     params: {
       slug: article.attributes.slug,

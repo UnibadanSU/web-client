@@ -22,7 +22,7 @@ export async function getStaticProps() {
   const data = await getAboutPageContent();
   return {
     props: {
-      aboutPage: data ? data.data : [],
+      aboutPage: data ? data : {},
     },
   };
 }

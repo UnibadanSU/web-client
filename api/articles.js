@@ -15,7 +15,7 @@ export const getArticles = async () => {
     }
     return null;
   } catch (error) {
-    return new Error("An error occured");
+    return null;
   }
 };
 
@@ -26,7 +26,7 @@ export const getArticle = async (slug) => {
     );
     return response.data;
   } catch {
-    return new Error("An error occurred");
+    return null;
   }
 };
 
@@ -44,6 +44,6 @@ export const getAllArticles = async () => {
     }
     return [];
   } catch (error) {
-    return new Error("An error occured");
+    return null;
   }
 };
