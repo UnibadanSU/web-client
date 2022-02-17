@@ -7,11 +7,11 @@ export const getArticles = async () => {
     const response = await requestInstance.get(url);
     if (response.data) {
       let articles = null;
-      const {data} = response.data;
-      if (data && data.length > 0){
+      const { data } = response.data;
+      if (data && data.length > 0) {
         articles = data;
       }
-      return articles
+      return articles;
     }
     return null;
   } catch (error) {
@@ -32,18 +32,17 @@ export const getArticle = async (slug) => {
 
 export const getAllArticles = async () => {
   try {
-    const url =
-      "/articles";
+    const url = "/articles";
     const response = await requestInstance.get(url);
     if (response.data) {
       let articles = [];
-      const {data} = response.data;
-      if (data && data.length > 0){
+      const { data } = response.data;
+      if (data && data.length > 0) {
         articles = data;
       }
-      return articles
+      return articles;
     }
-    return null;
+    return [];
   } catch (error) {
     return new Error("An error occured");
   }
