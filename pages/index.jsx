@@ -5,6 +5,7 @@ import BannerSection from "../components/common/bannersection";
 import { getArticles } from "../api/articles";
 
 const Home = ({ articles }) => {
+  console.log(articles)
   const seo = {
     title: "University of Ibadan Student's Union",
     description:
@@ -22,13 +23,20 @@ const Home = ({ articles }) => {
   );
 };
 
-export async function getStaticProps() {
-  const data = await getArticles();
-  return {
-    props: {
-      articles: data ? data : [],
-    },
-  };
-}
+// export async function getStaticProps() {
+//   const data = await getArticles();
+//   return {
+//     props: {
+//       articles: data ? data : [],
+//     },
+//   };
+// }
+
+fetch('https://uisu-admin.herokuapp.com/api/articles', {
+  method: 'GET',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+}).then(res => res.json()).then(data => console.log(data));
 
 export default Home;
