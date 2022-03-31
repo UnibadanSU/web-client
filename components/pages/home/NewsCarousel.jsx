@@ -16,7 +16,9 @@ import styles from "./style.module.css";
 // install Swiper modules
 SwiperCore.use([EffectCreative, Pagination, Navigation]);
 
-export default function App() {
+export default function App({articles}) {
+
+  const swipe = articles || []
   return (
     <div className={styles.SliderWrapper}>
       <Swiper
@@ -37,27 +39,34 @@ export default function App() {
         }}
         className="mySwiper"
       >
+        {swipe.map(item=>(
+          <SwiperSlide>
+          <Headline />
+        </SwiperSlide>
+        ))}
+        
+
+        {/* <SwiperSlide>
+          <Headline />
+        </SwiperSlide>
+
         <SwiperSlide>
           <Headline />
         </SwiperSlide>
+
         <SwiperSlide>
           <Headline />
         </SwiperSlide>
+
         <SwiperSlide>
           <Headline />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Headline />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Headline />
-        </SwiperSlide>
+        </SwiperSlide> */}
       </Swiper>
     </div>
   );
 }
 
-const Headline = () => {
+const Headline = ({image, body}) => {
   return (
     <>
       <div
