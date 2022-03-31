@@ -4,8 +4,8 @@ import NewsCarousel from "../components/pages/home/NewsCarousel";
 import CardContainer from "../components/pages/home/CardContainer";
 import BannerSection from "../components/common/bannersection";
 import { useState, useEffect } from "react";
-const www = require("../api/data");
-const {getAllArticles} = www;
+const db = require("../api/data");
+const {getAllArticles} = db;
 
 
 const Home = () => {
@@ -30,8 +30,7 @@ const Home = () => {
           {articles.map((article, index) => (
             <Card 
               headline={article.title} 
-              // image={article.image} 
-              image={"https://via.placeholder.com/150/"}
+              image={article.image} 
               key={index} 
               />
           ))}

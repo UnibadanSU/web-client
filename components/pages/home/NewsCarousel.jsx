@@ -41,7 +41,7 @@ export default function App({articles}) {
       >
         {swipe.map(item=>(
           <SwiperSlide>
-          <Headline />
+          <Headline  body={item.body} date={item.publish_date} />
         </SwiperSlide>
         ))}
         
@@ -66,7 +66,7 @@ export default function App({articles}) {
   );
 }
 
-const Headline = ({image, body}) => {
+const Headline = ({image, body, date}) => {
   return (
     <>
       <div
@@ -83,12 +83,11 @@ const Headline = ({image, body}) => {
         <div className="space-y-2 lg:ml-5 mt-3 relative top-3 sm:top-0">
           <div className="space-x-2 relative top-2 sm:top-0">
             <NewsBadge title="News" />
-            <span className="text-xs font-semibold">November 19, 2021</span>
+            <span className="text-xs font-semibold">{date}</span>
           </div>
           <div>
             <p className="font-semibold text-[15px]">
-              “Free Food will be given to all Indy and Zik Hall residents” -
-              Naira Marley
+              {body.slice(0, 100)+ "..."}
             </p>
           </div>
         </div>
