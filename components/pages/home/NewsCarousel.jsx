@@ -41,26 +41,9 @@ export default function App({articles}) {
       >
         {swipe.map(item=>(
           <SwiperSlide>
-          <Headline />
+          <Headline body={item.body} image={item.image} />
         </SwiperSlide>
         ))}
-        
-
-        {/* <SwiperSlide>
-          <Headline />
-        </SwiperSlide>
-
-        <SwiperSlide>
-          <Headline />
-        </SwiperSlide>
-
-        <SwiperSlide>
-          <Headline />
-        </SwiperSlide>
-
-        <SwiperSlide>
-          <Headline />
-        </SwiperSlide> */}
       </Swiper>
     </div>
   );
@@ -74,7 +57,7 @@ const Headline = ({image, body}) => {
           width: "100%",
           height: "300px",
           backgroundImage:
-            'linear-gradient(rgba(0, 0, 0, 0.527), rgba(0, 0, 0, 0.5)),url("/unsplash_1.png")',
+            `linear-gradient(rgba(0, 0, 0, 0.527), rgba(0, 0, 0, 0.5)),url(${image})`,
           borderBottomLeftRadius: "36px",
           borderBottomRightRadius: "36px",
         }}
@@ -87,8 +70,7 @@ const Headline = ({image, body}) => {
           </div>
           <div>
             <p className="font-semibold text-[15px]">
-              “Free Food will be given to all Indy and Zik Hall residents” -
-              Naira Marley
+              {body}
             </p>
           </div>
         </div>

@@ -30,8 +30,7 @@ const Home = () => {
           {articles.map((article, index) => (
             <Card 
               headline={article.title} 
-              // image={article.image} 
-              image={"https://via.placeholder.com/150/"}
+              image={article.image} 
               key={index} 
               />
           ))}
