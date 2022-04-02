@@ -8,11 +8,20 @@ function getAllArticles() {
       resolve (response.data);
     });
   });
+} 
+
+function getAllExecutives(){
+  return new Promise((resolve, reject) => {
+    axios.get(url + "executives/").then((response) => {
+      resolve (response.data);
+    });
+  });
 }
 
 
 const database = {
   getAllArticles,
+  getAllExecutives,
 };
 
 module.exports = database;
