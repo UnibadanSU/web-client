@@ -3,6 +3,7 @@ import NewsCarousel from "../components/pages/home/NewsCarousel";
 import Articles from "../components/pages/home/Articles";
 import BannerSection from "../components/common/bannersection";
 import { getArticles } from "../api/articles";
+import axios from 'axios'
 
 const Home = ({ articles }) => {
   console.log(articles)
@@ -23,20 +24,20 @@ const Home = ({ articles }) => {
   );
 };
 
-// export async function getStaticProps() {
-//   const data = await getArticles();
-//   return {
-//     props: {
-//       articles: data ? data : [],
-//     },
-//   };
-// }
+export async function getStaticProps() {
+  const {data} = await axios.get('https://uisu-cms.herokuapp.com/api/articles/')
+  return {
+    props: {
+      articles: data ? data.data : [],
+    },
+  };
+}
 
-fetch('https://uisu-admin.herokuapp.com/api/articles', {
-  method: 'GET',
-  headers: {
-    'Content-Type': 'application/json',
-  },
-}).then(res => res.json()).then(data => console.log(data));
+// fetch('https://uisu-cms.herokuapp.com/api/articles', {
+//   method: 'GET',
+//   headers: {
+//     'Content-Type': 'application/json',
+//   },
+// }).then(res => res.json()).then(data => console.log(data));
 
 export default Home;
