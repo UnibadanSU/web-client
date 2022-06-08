@@ -53,16 +53,16 @@ export default function App({ articles }) {
 const Headline = ({ headline }) => {
   if (!headline) return null;
 
-  let timePublished = headline.timePublished.split("-");
+  // let timePublished = headline.timePublished.split("-");
   const dt = new DateTime(new Date());
 
-  let publishedAt = dt
-    .set({
-      year: parseInt(timePublished[0]),
-      month: parseInt(timePublished[1]),
-      day: parseInt(timePublished[2]),
-    })
-    .toFormat("LLL dd, yyyy");
+  // let publishedAt = dt
+  //   .set({
+  //     year: parseInt(timePublished[0]),
+  //     month: parseInt(timePublished[1]),
+  //     day: parseInt(timePublished[2]),
+  //   })
+  //   .toFormat("LLL dd, yyyy");
 
   let imageUrl = headline.image.data.attributes;
   if (imageUrl) {
@@ -84,7 +84,7 @@ const Headline = ({ headline }) => {
         <div className="space-y-2 lg:ml-5 mt-3 relative top-3 sm:top-0">
           <div className="space-x-2 relative top-2 sm:top-0">
             <NewsBadge title="News" />
-            <span className="text-xs font-semibold">{publishedAt}</span>
+            {/* <span className="text-xs font-semibold">{publishedAt}</span> */}
           </div>
           <div>
             <p className="font-semibold text-[15px]">{headline.title}</p>
