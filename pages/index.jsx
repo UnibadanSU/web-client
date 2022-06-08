@@ -2,7 +2,7 @@ import Layout from "../components/common/Layout";
 import NewsCarousel from "../components/pages/home/NewsCarousel";
 import Articles from "../components/pages/home/Articles";
 import BannerSection from "../components/common/bannersection";
-import { getArticles } from "../api/articles";
+import { getAllArticles } from "../api/articles";
 import axios from 'axios'
 
 const Home = ({ articles }) => {
@@ -25,13 +25,21 @@ const Home = ({ articles }) => {
 };
 
 export async function getStaticProps() {
-  const {data} = await axios.get('https://uisu-cms.herokuapp.com/api/articles/')
+  const data = await getAllArticles()
   return {
     props: {
-      articles: data ? data.data : [],
+      articles: data ? data : [],
     },
   };
 }
+// export const getStaticProps = async ()=>{
+//   const {data} = await axios.get('https://uisu-cms.herokuapp.com/api/articles/?populate=*')
+//   return {
+//     props:{
+//       articles: data ? data.data : []
+//     }
+//   }
+// }
 
 // fetch('https://uisu-cms.herokuapp.com/api/articles', {
 //   method: 'GET',

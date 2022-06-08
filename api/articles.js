@@ -32,11 +32,12 @@ export const getArticle = async (slug) => {
 
 export const getAllArticles = async () => {
   try {
-    const url = "/articles";
+    const url = "/articles/?populate=*";
     const response = await requestInstance.get(url);
+    console.log(response)
     if (response.data) {
       let articles = [];
-      const { data } = response.data;
+      const { data } = await response.data;
       if (data && data.length > 0) {
         articles = data;
       }
