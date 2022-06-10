@@ -8,7 +8,7 @@ export default function ExecutivesPage({ executives }) {
     title: "University of Ibadan Student's Union | Executive Council",
     description: "The Executives of the University of Ibadan Student's Union",
   };
-
+  console.log(executives)
   return (
     <Layout seo={seo}>
       <div className="my-10">
