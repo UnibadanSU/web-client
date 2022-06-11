@@ -3,10 +3,8 @@ import NewsCarousel from "../components/pages/home/NewsCarousel";
 import Articles from "../components/pages/home/Articles";
 import BannerSection from "../components/common/bannersection";
 import { getAllArticles } from "../api/articles";
-import axios from 'axios'
 
 const Home = ({ articles }) => {
-  console.log(process.env.NEXT_PUBLIC_DEV_BASE_API_URL)
   const seo = {
     title: "University of Ibadan Student's Union",
     description:

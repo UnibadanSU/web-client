@@ -9,7 +9,7 @@ export default function News({ article }) {
     imageUrl = getStrapiMedia(imageUrl);
   }
   const getDescription = (body, limit)=>{
-    return body.length > limit ? body.substr(0, limit-1) + '...' : str
+    return body.length > limit ? body.substr(0, limit-1) + '...' : body
   }
   const seo = {
     title: article.attributes.title,
