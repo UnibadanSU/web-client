@@ -13,7 +13,7 @@ export default function News({ article }) {
   }
   const seo = {
     title: article.attributes.title,
-    description:getDescription(article.body, 200),
+    description:getDescription(article.attributes.body, 200),
     shareImage: imageUrl || "",
   };
 
@@ -50,7 +50,6 @@ export async function getStaticProps({ params }) {
   return {
     props: {
       article: article ? article : null,
-    },
-    revalidate: 100000
+    }
   };
 }
