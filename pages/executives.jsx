@@ -25,5 +25,6 @@ export async function getStaticProps() {
     props: {
       executives: data ? data.data : [],
     },
+    revalidate: 5
   };
 }

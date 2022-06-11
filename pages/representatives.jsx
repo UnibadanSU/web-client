@@ -24,5 +24,6 @@ export async function getStaticProps() {
     props: {
       representatives: data ? data.data : [],
     },
+    revalidate: 10000
   };
 }

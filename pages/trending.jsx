@@ -23,5 +23,6 @@ export async function getStaticProps() {
     props: {
       trending: data ? data.data : [],
     },
+    revalidate: 10
   };
 }

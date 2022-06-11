@@ -30,7 +30,7 @@ export async function getStaticProps() {
     props: {
       articles: data ? data : [],
     },
-    revalidate: 5
+    revalidate: 10
   };
 }
 // export const getStaticProps = async ()=>{

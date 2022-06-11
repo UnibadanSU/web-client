@@ -24,5 +24,6 @@ export async function getStaticProps() {
     props: {
       aboutPage: data ? data : {},
     },
+    revalidate: 1000000
   };
 }
