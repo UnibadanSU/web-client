@@ -8,10 +8,12 @@ export default function News({ article }) {
   if (imageUrl) {
     imageUrl = getStrapiMedia(imageUrl);
   }
-
+  const getDescription = (body, limit)=>{
+    return body.length > limit ? body.substr(0, limit-1) + '...' : str
+  }
   const seo = {
     title: article.attributes.title,
-    description: article.attributes.description,
+    description:getDescription(article.body, 200),
     shareImage: imageUrl || "",
   };
 
