@@ -70,8 +70,8 @@ const Headline = ({ headline }) => {
   }
 
   return (
-    <>
-      <div
+    <Link passHref href={`/news/${encodeURIComponent(article.slug)}`}>
+       <div
         style={{
           width: "100%",
           height: "300px",
@@ -91,6 +91,7 @@ const Headline = ({ headline }) => {
           </div>
         </div>
       </div>
-    </>
+    </Link>
+     
   );
 };
