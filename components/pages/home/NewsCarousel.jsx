@@ -14,6 +14,7 @@ import "swiper/css/effect-creative";
 import SwiperCore, { EffectCreative, Pagination, Navigation } from "swiper";
 import NewsBadge from "../../ui/NewsBadge";
 import styles from "./style.module.css";
+import Link from "next/link";
 
 // install Swiper modules
 SwiperCore.use([EffectCreative, Pagination, Navigation]);
