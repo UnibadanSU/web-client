@@ -1,6 +1,6 @@
 .bannerSection {
   position: relative;
-  margin: 10px 2px;
+  margin: 10px 2px 5px 2px;
   padding: 10px 0;
   overflow: hidden;
   text-align: center;
@@ -8,7 +8,7 @@
   color: white;
   font-weight: 600;
   letter-spacing: 0.2em;
-  border-radius: 0px 0px 20px 0px;
+  border-radius: 0px 0px 20px 20px;
   background: linear-gradient(306.15deg, #e30000 -8.26%, #ffd601 92.1%);
 }
 

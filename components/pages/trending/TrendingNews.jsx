@@ -1,93 +1,105 @@
 import React from "react";
 import Link from "next/link";
 import NewsBadge from "../../ui/NewsBadge";
+import {lightFormat} from 'date-fns'
 import { v4 as uuid } from "uuid";
+import { getStrapiMedia } from "../../../lib/media";
+const truncate = text => text.length > 200 ? text.substr(0, 200) + '...' : text
+export default function TrendingNews({articles}) {
+  const news = articles.map(article=>{
+    return {
+      headline: article.attributes.title,
+      summary: truncate(article.attributes.body),
+      image: getStrapiMedia(article.attributes.image.data.attributes),
+      date: lightFormat(new Date(article.attributes.publishedAt), 'dd-MM-yyyy'),
+      slug: article.attributes.slug,
 
-export default function TrendingNews() {
-  const news = [
-    {
-      headline:
-        "“Free Food will be given to all Indy and Zik Hall residents” - Naira Marley",
-      summary:
-        "Duis integer id ultrices ipsum tristique congue. Feugiat consectetur nam pharetra maecenas integer turpis tincidunt. Dui habitasse vel convallis vulputate...",
-      image: "/unsplash_1.png",
-      date: "November 19, 2021",
-      link: "#",
-    },
-    {
-      headline:
-        "“Free Food will be given to all Indy and Zik Hall residents” - Naira Marley",
-      summary:
-        "Duis integer id ultrices ipsum tristique congue. Feugiat consectetur nam pharetra maecenas integer turpis tincidunt. Dui habitasse vel convallis vulputate...",
-      image: "/unsplash_1.png",
-      date: "November 19, 2021",
-      link: "#",
-    },
-    {
-      headline:
-        "“Free Food will be given to all Indy and Zik Hall residents” - Naira Marley",
-      summary:
-        "Duis integer id ultrices ipsum tristique congue. Feugiat consectetur nam pharetra maecenas integer turpis tincidunt. Dui habitasse vel convallis vulputate...",
-      image: "/unsplash_1.png",
-      date: "November 19, 2021",
-      link: "#",
-    },
-    {
-      headline:
-        "“Free Food will be given to all Indy and Zik Hall residents” - Naira Marley",
-      summary:
-        "Duis integer id ultrices ipsum tristique congue. Feugiat consectetur nam pharetra maecenas integer turpis tincidunt. Dui habitasse vel convallis vulputate...",
-      image: "/unsplash_1.png",
-      date: "November 19, 2021",
-      link: "#",
-    },
-    {
-      headline:
-        "“Free Food will be given to all Indy and Zik Hall residents” - Naira Marley",
-      summary:
-        "Duis integer id ultrices ipsum tristique congue. Feugiat consectetur nam pharetra maecenas integer turpis tincidunt. Dui habitasse vel convallis vulputate...",
-      image: "/unsplash_1.png",
-      date: "November 19, 2021",
-      link: "#",
-    },
-    {
-      headline:
-        "“Free Food will be given to all Indy and Zik Hall residents” - Naira Marley",
-      summary:
-        "Duis integer id ultrices ipsum tristique congue. Feugiat consectetur nam pharetra maecenas integer turpis tincidunt. Dui habitasse vel convallis vulputate...",
-      image: "/unsplash_1.png",
-      date: "November 19, 2021",
-      link: "#",
-    },
-    {
-      headline:
-        "“Free Food will be given to all Indy and Zik Hall residents” - Naira Marley",
-      summary:
-        "Duis integer id ultrices ipsum tristique congue. Feugiat consectetur nam pharetra maecenas integer turpis tincidunt. Dui habitasse vel convallis vulputate...",
-      image: "/unsplash_1.png",
-      date: "November 19, 2021",
-      link: "#",
-    },
-    {
-      headline:
-        "“Free Food will be given to all Indy and Zik Hall residents” - Naira Marley",
-      summary:
-        "Duis integer id ultrices ipsum tristique congue. Feugiat consectetur nam pharetra maecenas integer turpis tincidunt. Dui habitasse vel convallis vulputate...",
-      image: "/unsplash_1.png",
-      date: "November 19, 2021",
-      link: "#",
-    },
-    {
-      headline:
-        "“Free Food will be given to all Indy and Zik Hall residents” - Naira Marley",
-      summary:
-        "Duis integer id ultrices ipsum tristique congue. Feugiat consectetur nam pharetra maecenas integer turpis tincidunt. Dui habitasse vel convallis vulputate...",
-      image: "/unsplash_1.png",
-      date: "November 19, 2021",
-      link: "#",
-    },
-  ];
-
+    }
+  })
+  // const dummy_news = [
+  //   {
+  //     headline:
+  //       "“Free Food will be given to all Indy and Zik Hall residents” - Naira Marley",
+  //     summary:
+  //       "Duis integer id ultrices ipsum tristique congue. Feugiat consectetur nam pharetra maecenas integer turpis tincidunt. Dui habitasse vel convallis vulputate...",
+  //     image: "/unsplash_1.png",
+  //     date: "November 19, 2021",
+  //     link: "#",
+  //   },
+  //   {
+  //     headline:
+  //       "“Free Food will be given to all Indy and Zik Hall residents” - Naira Marley",
+  //     summary:
+  //       "Duis integer id ultrices ipsum tristique congue. Feugiat consectetur nam pharetra maecenas integer turpis tincidunt. Dui habitasse vel convallis vulputate...",
+  //     image: "/unsplash_1.png",
+  //     date: "November 19, 2021",
+  //     link: "#",
+  //   },
+  //   {
+  //     headline:
+  //       "“Free Food will be given to all Indy and Zik Hall residents” - Naira Marley",
+  //     summary:
+  //       "Duis integer id ultrices ipsum tristique congue. Feugiat consectetur nam pharetra maecenas integer turpis tincidunt. Dui habitasse vel convallis vulputate...",
+  //     image: "/unsplash_1.png",
+  //     date: "November 19, 2021",
+  //     link: "#",
+  //   },
+  //   {
+  //     headline:
+  //       "“Free Food will be given to all Indy and Zik Hall residents” - Naira Marley",
+  //     summary:
+  //       "Duis integer id ultrices ipsum tristique congue. Feugiat consectetur nam pharetra maecenas integer turpis tincidunt. Dui habitasse vel convallis vulputate...",
+  //     image: "/unsplash_1.png",
+  //     date: "November 19, 2021",
+  //     link: "#",
+  //   },
+  //   {
+  //     headline:
+  //       "“Free Food will be given to all Indy and Zik Hall residents” - Naira Marley",
+  //     summary:
+  //       "Duis integer id ultrices ipsum tristique congue. Feugiat consectetur nam pharetra maecenas integer turpis tincidunt. Dui habitasse vel convallis vulputate...",
+  //     image: "/unsplash_1.png",
+  //     date: "November 19, 2021",
+  //     link: "#",
+  //   },
+  //   {
+  //     headline:
+  //       "“Free Food will be given to all Indy and Zik Hall residents” - Naira Marley",
+  //     summary:
+  //       "Duis integer id ultrices ipsum tristique congue. Feugiat consectetur nam pharetra maecenas integer turpis tincidunt. Dui habitasse vel convallis vulputate...",
+  //     image: "/unsplash_1.png",
+  //     date: "November 19, 2021",
+  //     link: "#",
+  //   },
+  //   {
+  //     headline:
+  //       "“Free Food will be given to all Indy and Zik Hall residents” - Naira Marley",
+  //     summary:
+  //       "Duis integer id ultrices ipsum tristique congue. Feugiat consectetur nam pharetra maecenas integer turpis tincidunt. Dui habitasse vel convallis vulputate...",
+  //     image: "/unsplash_1.png", 
+  //     date: "November 19, 2021",
+  //     link: "#",
+  //   },
+  //   {
+  //     headline:
+  //       "“Free Food will be given to all Indy and Zik Hall residents” - Naira Marley",
+  //     summary:
+  //       "Duis integer id ultrices ipsum tristique congue. Feugiat consectetur nam pharetra maecenas integer turpis tincidunt. Dui habitasse vel convallis vulputate...",
+  //     image: "/unsplash_1.png",
+  //     date: "November 19, 2021",
+  //     link: "#",
+  //   },
+  //   {
+  //     headline:
+  //       "“Free Food will be given to all Indy and Zik Hall residents” - Naira Marley",
+  //     summary:
+  //       "Duis integer id ultrices ipsum tristique congue. Feugiat consectetur nam pharetra maecenas integer turpis tincidunt. Dui habitasse vel convallis vulputate...",
+  //     image: "/unsplash_1.png",
+  //     date: "November 19, 2021",
+  //     link: "#",
+  //   },
+  // ];
+  console.log(news)
   return (
     <div className="flex flex-col items-center mx-[16px] mt-[80px] mb-[80px] space-y-[37px]">
       {news && news.map((info) => <News key={uuid()} {...info} />)}
@@ -95,8 +107,8 @@ export default function TrendingNews() {
   );
 }
 
-const News = ({ date, headline, summary, image, link }) => (
-  <Link href="/news">
+const News = ({ date, headline, summary, image, link, slug }) => (
+  <Link passHref href={`/news/${encodeURIComponent(slug)}`}>
     <a className="block">
       <div className="flex flex-row space-x-[11px]">
         <div>

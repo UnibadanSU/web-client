@@ -16,7 +16,9 @@ const Home = ({ articles }) => {
       <div className="mb-20">
         <NewsCarousel articles={articles} />
         <BannerSection text="Trending news and events" />
-        <Articles articles={articles} />
+        <Articles articles={articles} topic = 'News' />
+        <BannerSection text= 'ui su press corner' />
+        <Articles articles={articles} topic = 'SU Press' />
       </div>
     </Layout>
   );

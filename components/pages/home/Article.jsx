@@ -2,7 +2,7 @@ import Link from "next/link";
 import { getStrapiMedia } from "../../../lib/media";
 import NewsBadge from "../../ui/NewsBadge";
 
-const Article = ({ article }) => {
+const Article = ({ article, topic}) => {
   let imageUrl = article.image.data.attributes;
   if (imageUrl) {
     imageUrl = getStrapiMedia(imageUrl);
@@ -18,9 +18,9 @@ const Article = ({ article }) => {
               backgroundPosition: "top center",
               backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.527), rgba(0, 0, 0, 0.5)), url('${imageUrl}')`,
             }}
-            className="flex flex-row gap-[6px] w-full h-full text-white bg-no-repeat bg-center rounded-[16px] p-[20px]"
+            className="flex flex-col md:flex-row gap-[6px] w-full h-full text-white bg-no-repeat bg-center rounded-[16px] p-[20px]"
           >
-            <NewsBadge title="News" />
+            <NewsBadge title= {topic} />
             <div className="text-[14px] font-bold relative bottom-[4px]">
               {article.title}
             </div>

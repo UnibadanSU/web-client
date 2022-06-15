@@ -66,11 +66,11 @@ export default function NavigationMenu({ shouldOpen, closeNavMenu }) {
                 The SU Representative Council
               </a>
             </Link>
-            {/* <Link href="/su_corner">
+            <Link href="/su_corner">
               <a className="text-lg py-2 border-b border-custom-gray">
                 Student Union Press Corner
               </a>
-            </Link> */}
+            </Link>
             <Link href="/about">
               <a className="text-lg py-2 border-b border-custom-gray">
                 About UI Student Union
@@ -80,7 +80,7 @@ export default function NavigationMenu({ shouldOpen, closeNavMenu }) {
           <div className="text-white text-center my-10">
             <div>Connect with UI SU</div>
             <div className="flex flex-row justify-center items-center space-x-3 mt-3">
-              <a href="https://facebook.com/TheOfficialUISU">
+              <a href="https://facebook.com/groups/204218416273708/?ref=share">
                 <Image
                   src="/facebook.svg"
                   width="30px"
@@ -96,7 +96,7 @@ export default function NavigationMenu({ shouldOpen, closeNavMenu }) {
                   alt="twitter"
                 />
               </a>
-              <a href="https://www.instagram.com/officialuisu/">
+              <a href="https://www.instagram.com/studentsunion_ui">
                 <Image
                   src="/instagram.svg"
                   width="30px"
