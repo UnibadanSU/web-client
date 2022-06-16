@@ -5,7 +5,7 @@ import {lightFormat} from 'date-fns'
 import { v4 as uuid } from "uuid";
 import { getStrapiMedia } from "../../../lib/media";
 const truncate = text => text.length > 200 ? text.substr(0, 200) + '...' : text
-export default function TrendingNews({articles}) {
+export default function TrendingNews({articles, title}) {
   const news = articles.map(article=>{
     return {
       headline: article.attributes.title,
@@ -13,6 +13,7 @@ export default function TrendingNews({articles}) {
       image: getStrapiMedia(article.attributes.image.data.attributes),
       date: lightFormat(new Date(article.attributes.publishedAt), 'dd-MM-yyyy'),
       slug: article.attributes.slug,
+      title: title
 
     }
   })
@@ -107,7 +108,7 @@ export default function TrendingNews({articles}) {
   );
 }
 
-const News = ({ date, headline, summary, image, link, slug }) => (
+const News = ({ date, headline, summary, image, link, slug, title }) => (
   <Link passHref href={`/news/${encodeURIComponent(slug)}`}>
     <a className="block">
       <div className="flex flex-row space-x-[11px]">
@@ -120,7 +121,7 @@ const News = ({ date, headline, summary, image, link, slug }) => (
         </div>
         <div className="relative bottom-[1px]">
           <div className="flex flex-row items-center space-x-[6px] font-bold">
-            <NewsBadge title="news" />
+            <NewsBadge title= {title} />
             <div className="text-[12px]">{date}</div>
           </div>
           <div>

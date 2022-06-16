@@ -2,6 +2,7 @@ import Layout from "../components/common/Layout";
 import PageIntro from "../components/ui/PageIntro";
 import TrendingNews from "../components/pages/trending/TrendingNews";
 import { getAllArticles } from "../api/articles";
+import { getStudentsUnionPress } from "../api/studentsUnionPress";
 
 export default function SU_Corner({articles}) {
   const seo = {
@@ -13,12 +14,12 @@ export default function SU_Corner({articles}) {
   return (
     <Layout seo={seo}>
       <PageIntro text="Student union press corner" />
-      <TrendingNews articles = {articles} />
+      <TrendingNews title = {'SU Press'} articles = {articles} />
     </Layout>
   );
 }
 export const getStaticProps = async ()=>{
-  const data = await getAllArticles()
+  const data = await getStudentsUnionPress()
   return{
     props:{
       articles: data ? data : []
