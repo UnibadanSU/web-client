@@ -2,14 +2,14 @@ import Link from "next/link";
 import { getStrapiMedia } from "../../../lib/media";
 import NewsBadge from "../../ui/NewsBadge";
 
-const Article = ({ article, topic}) => {
+const Article = ({ article, topic, link}) => {
   let imageUrl = article.image.data.attributes;
   if (imageUrl) {
     imageUrl = getStrapiMedia(imageUrl);
   }
 
   return (
-    <Link passHref href={`/news/${encodeURIComponent(article.slug)}`}>
+    <Link passHref href={`/${link}/${encodeURIComponent(article.slug)}`}>
       <a>
         <div className="h-[180px] mt-[12px] hover:opacity-90 transition-opacity duration-500 ease-in-out">
           <div

@@ -1,7 +1,6 @@
 import Layout from "../components/common/Layout";
 import PageIntro from "../components/ui/PageIntro";
 import TrendingNews from "../components/pages/trending/TrendingNews";
-import { getAllArticles } from "../api/articles";
 import { getStudentsUnionPress } from "../api/studentsUnionPress";
 
 export default function SU_Corner({articles}) {
@@ -10,11 +9,12 @@ export default function SU_Corner({articles}) {
     description:
       "The official website of the University of Ibadan Student's Union",
   };
+  console.log(articles)
  
   return (
     <Layout seo={seo}>
       <PageIntro text="Student union press corner" />
-      <TrendingNews title = {'SU Press'} articles = {articles} />
+      <TrendingNews title = {'SU Press'} articles = {articles} link = {'students-union-press-club'} />
     </Layout>
   );
 }
@@ -22,7 +22,7 @@ export const getStaticProps = async ()=>{
   const data = await getStudentsUnionPress()
   return{
     props:{
-      articles: data ? data : []
+      articles: data ? data.data : []
     },
     revalidate: 10
   }

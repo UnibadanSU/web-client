@@ -1,6 +1,6 @@
 import Article from "./Article";
 
-export default function NewsContainer({ articles, topic  }) {
+export default function NewsContainer({ articles, topic, link  }) {
   if (!articles) return null;
 
   return (
@@ -9,7 +9,7 @@ export default function NewsContainer({ articles, topic  }) {
       {articles &&
         articles.length > 0 &&
         articles.map((article) => (
-          <Article article={article.attributes} key={article.id} topic = {topic} />
+          <Article article={article.attributes} key={article.id} topic = {topic} link = {link}/>
         ))}
     </div>
   );

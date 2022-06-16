@@ -15,11 +15,11 @@ const Home = ({ newsArticles, suPressArticles }) => {
   return (
     <Layout seo={seo}>
       <div className="mb-20">
-        <NewsCarousel articles={articles} />
+        <NewsCarousel articles={newsArticles} />
         <BannerSection text="Trending news and events" />
-        <Articles articles={newsArticles} topic = 'News' />
+        <Articles articles={newsArticles} topic = 'News' link = {'news'} />
         <BannerSection text= 'ui su press corner' />
-        <Articles articles={suPressArticles} topic = 'SU Press' />
+        <Articles articles={suPressArticles} topic = 'SU Press' link ={'students-union-press-club'} />
       </div>
     </Layout>
   );
@@ -30,7 +30,7 @@ export async function getStaticProps() {
   const suPressData = await getStudentsUnionPress()
   return {
     props: {
-      newsArticles: newsDatadata ? newsData : [],
+      newsArticles: newsData ? newsData : [],
       suPressArticles: suPressData ? suPressData.data : []
 
     },

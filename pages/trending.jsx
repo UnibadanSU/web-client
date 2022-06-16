@@ -14,7 +14,7 @@ export default function TrendingNewsPage({articles}) {
   return (
     <Layout seo={seo}>
       <PageIntro text="Trending News & Events" />
-      <TrendingNews title = {'news'} articles = {articles} />
+      <TrendingNews title = {'news'} articles = {articles} link = {'news'} />
     </Layout>
   );
 }
