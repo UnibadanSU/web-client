@@ -3,8 +3,9 @@ import NewsCarousel from "../components/pages/home/NewsCarousel";
 import Articles from "../components/pages/home/Articles";
 import BannerSection from "../components/common/bannersection";
 import { getAllArticles } from "../api/articles";
+import { getStudentsUnionPress } from "../api/studentsUnionPress";
 
-const Home = ({ articles }) => {
+const Home = ({ newsArticles, suPressArticles }) => {
   const seo = {
     title: "University of Ibadan Student's Union",
     description:
@@ -16,19 +17,22 @@ const Home = ({ articles }) => {
       <div className="mb-20">
         <NewsCarousel articles={articles} />
         <BannerSection text="Trending news and events" />
-        <Articles articles={articles} topic = 'News' />
+        <Articles articles={newsArticles} topic = 'News' />
         <BannerSection text= 'ui su press corner' />
-        <Articles articles={articles} topic = 'SU Press' />
+        <Articles articles={suPressArticles} topic = 'SU Press' />
       </div>
     </Layout>
   );
 };
 
 export async function getStaticProps() {
-  const data = await getAllArticles()
+  const newsData = await getAllArticles()
+  const suPressData = await getStudentsUnionPress()
   return {
     props: {
-      articles: data ? data : [],
+      newsArticles: newsDatadata ? newsData : [],
+      suPressArticles: suPressData ? suPressData.data : []
+
     },
     revalidate: 10
   };
