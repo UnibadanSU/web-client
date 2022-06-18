@@ -1,11 +1,15 @@
-import Layout from "../../components/common/Layout";
-import ArticleCover from "../../components/pages/news/ArticleCover";
-import Article from "../../components/pages/news/Article";
-import { getArticle, getAllArticles } from "../../api/articles";
-import { getStudentsUnionPress, getStudentsUnionPressArticle } from "../../api/studentsUnionPress";
+import Layout from "../../../components/common/Layout";
+import ArticleCover from "../../../components/pages/news/ArticleCover";
+import Article from "../../../components/pages/news/Article";
+import { getArticle, getAllArticles } from "../../../api/articles";
+import { getStudentsUnionPress, getStudentsUnionPressArticle } from "../../../api/studentsUnionPress";
+
+
+import {useRouter} from 'next/router'
 
 export default function News({ article }) {
-  let imageUrl = article.image?.data.attributes;
+  const router = useRouter()
+  let imageUrl = article ? article.image?.data.attributes : null ;
   if (imageUrl) {
     imageUrl = getStrapiMedia(imageUrl);
   }
@@ -13,11 +17,16 @@ export default function News({ article }) {
     return body.length > limit ? body.substr(0, limit-1) + '...' : body
   }
   const seo = {
-    title: article.attributes.title,
-    description:getDescription(article.attributes.body, 200),
-    shareImage: imageUrl || "",
+    title: article ? article.attributes.title : '',
+    description:article ? getDescription(article.attributes.body, 200) : '',
+    shareImage: article ? imageUrl : "",
   };
   console.log(article)
+  if(router.isFallback){
+    return (
+      <div>Loading</div>
+    )
+  }
   return (
     <Layout seo={seo}>
       <ArticleCover image={article.attributes.image.data.attributes} />
@@ -31,10 +40,10 @@ export async function getStaticPaths() {
   let articles = Array.isArray(data.data) ? data.data : [];
   let paths = articles.map((article) => ({
     params: {
-      slug: article.attributes.slug,
+      slug: [...article.attributes.slug]
     },
   }));
-  return { paths, fallback: false };
+  return { paths, fallback: true };
 }
 
 export async function getStaticProps({ params }) {
