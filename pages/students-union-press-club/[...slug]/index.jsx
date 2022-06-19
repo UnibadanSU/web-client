@@ -47,7 +47,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const { slug } = params;
+  const { slug } = params.join();
   let article = await getStudentsUnionPressArticle(slug);
   if (!article) {
     return {
