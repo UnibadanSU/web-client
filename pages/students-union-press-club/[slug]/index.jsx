@@ -1,12 +1,12 @@
-// import Layout from "../../components/common/Layout";
-// import ArticleCover from "../../components/pages/news/ArticleCover";
-// import Article from "../../components/pages/news/Article";
-// import { getArticle, getAllArticles } from "../../api/articles";
-import Layout from '../../../components/common/Layout';
-import ArticleCover from '../../../components/pages/news/ArticleCover';
-import Article from '../../../components/pages/news/Article';
-import { getArticle, getAllArticles } from '../../../api/articles';
+import Layout from "../../../components/common/Layout";
+import ArticleCover from "../../../components/pages/news/ArticleCover";
+import Article from "../../../components/pages/news/Article";
+import { getArticle, getAllArticles } from "../../../api/articles";
+import { getStudentsUnionPress, getStudentsUnionPressArticle } from "../../../api/studentsUnionPress";
+
+
 import {useRouter} from 'next/router'
+
 export default function News({ article }) {
   const router = useRouter()
   let imageUrl = article ? article.image?.data.attributes : null ;
@@ -23,11 +23,11 @@ export default function News({ article }) {
   };
   console.log(article)
   if(router.isFallback){
+    console.log(router.isFallback)
     return (
       <div>Loading</div>
     )
   }
-
   return (
     <Layout seo={seo}>
       <ArticleCover image={article.attributes.image.data.attributes} />
@@ -37,11 +37,11 @@ export default function News({ article }) {
 }
 
 export async function getStaticPaths() {
-  let data = await getAllArticles();
-  let articles = Array.isArray(data) ? data : [];
+  let data = await getStudentsUnionPress();
+  let articles = Array.isArray(data.data) ? data.data : [];
   let paths = articles.map((article) => ({
     params: {
-      slug: [...article.attributes.slug]
+      slug: article.attributes.slug
     },
   }));
   return { paths, fallback: true };
@@ -49,7 +49,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const { slug } = params;
-  let article = await getArticle(slug);
+  let article = await getStudentsUnionPressArticle(slug);
   if (!article) {
     return {
       notFound: true,

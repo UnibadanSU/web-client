@@ -1,12 +1,12 @@
-import Layout from "../../../components/common/Layout";
-import ArticleCover from "../../../components/pages/news/ArticleCover";
-import Article from "../../../components/pages/news/Article";
-import { getArticle, getAllArticles } from "../../../api/articles";
-import { getStudentsUnionPress, getStudentsUnionPressArticle } from "../../../api/studentsUnionPress";
-
-
+// import Layout from "../../components/common/Layout";
+// import ArticleCover from "../../components/pages/news/ArticleCover";
+// import Article from "../../components/pages/news/Article";
+// import { getArticle, getAllArticles } from "../../api/articles";
+import Layout from '../../../components/common/Layout';
+import ArticleCover from '../../../components/pages/news/ArticleCover';
+import Article from '../../../components/pages/news/Article';
+import { getArticle, getAllArticles } from '../../../api/articles';
 import {useRouter} from 'next/router'
-
 export default function News({ article }) {
   const router = useRouter()
   let imageUrl = article ? article.image?.data.attributes : null ;
@@ -27,6 +27,7 @@ export default function News({ article }) {
       <div>Loading</div>
     )
   }
+
   return (
     <Layout seo={seo}>
       <ArticleCover image={article.attributes.image.data.attributes} />
@@ -36,19 +37,19 @@ export default function News({ article }) {
 }
 
 export async function getStaticPaths() {
-  let data = await getStudentsUnionPress();
-  let articles = Array.isArray(data.data) ? data.data : [];
+  let data = await getAllArticles();
+  let articles = Array.isArray(data) ? data : [];
   let paths = articles.map((article) => ({
     params: {
-      slug: [...article.attributes.slug]
+      slug: article.attributes.slug
     },
   }));
   return { paths, fallback: true };
 }
 
 export async function getStaticProps({ params }) {
-  const { slug } = params.join();
-  let article = await getStudentsUnionPressArticle(slug);
+  const { slug } = params;
+  let article = await getArticle(slug);
   if (!article) {
     return {
       notFound: true,

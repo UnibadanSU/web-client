@@ -58,7 +58,7 @@ export default function NavigationMenu({ shouldOpen, closeNavMenu }) {
             </Link>
             <Link href="/executives">
               <a className="text-lg py-2 border-b border-custom-gray">
-                The Executive Corner
+                Executives
               </a>
             </Link>
             <Link href="/representatives">
@@ -68,7 +68,7 @@ export default function NavigationMenu({ shouldOpen, closeNavMenu }) {
             </Link>
             <Link href="/su_corner">
               <a className="text-lg py-2 border-b border-custom-gray">
-                Student Union Press Corner
+                Thr Student Union Press Club (SUPC)
               </a>
             </Link>
             <Link href="/about">
