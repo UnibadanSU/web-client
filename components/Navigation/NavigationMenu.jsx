@@ -68,12 +68,12 @@ export default function NavigationMenu({ shouldOpen, closeNavMenu }) {
             </Link>
             <Link href="/su_corner">
               <a className="text-lg py-2 border-b border-custom-gray">
-                The Students' Union Press Club (SUPC)
+                {`The Students' Union Press Club`} (SUPC)
               </a>
             </Link>
             <Link href="/about">
               <a className="text-lg py-2 border-b border-custom-gray">
-                About UI Students' Union
+              {`About UI Students' Union`}
               </a>
             </Link>
           </div>
