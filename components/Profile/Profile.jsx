@@ -17,14 +17,14 @@ const Profile = () => {
 export default Profile;
 
 const ProfileContainer = styled.div`
-  width: 151px;
-  height: 151px;
+  width: 300px;
+  height: 300px;
   margin: 10px 20px 20px;
 `
 
 const Picture = styled(Image)`
-  width: 100%;
-  height: 100%;
+  width: 300px;
+ 
   border-radius: 50%;
   border: 4px solid;
   border-image-source: linear-gradient(179.66deg, #E30000 0.29%, #FFFFFF 70.13%);

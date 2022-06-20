@@ -1,13 +1,15 @@
+import Link from "next/link";
 import { getStrapiMedia } from "../../lib/media";
 
-export default function SUProfile({ profile }) {
+export default function SUProfile({ profile, link, id }) {
   let imageUrl = profile.image.data.attributes;
   if (imageUrl) {
     imageUrl = getStrapiMedia(imageUrl);
   }
 
   return (
-    <div className="max-w-[219px] mx-auto">
+    <Link passHref href={`/${link}/${encodeURIComponent(id)}`}>
+       <div className="max-w-[219px] mx-auto">
       <img
         src={imageUrl}
         alt={profile.name}
@@ -18,5 +20,7 @@ export default function SUProfile({ profile }) {
       <p className="text-center text-custom-red text-sm">{profile.contact}</p>
       <p className="text-center text-custom-red text-sm">{profile.about && profile.about}</p>
     </div>
+    </Link>
+   
   );
 }
