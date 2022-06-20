@@ -58,22 +58,22 @@ export default function NavigationMenu({ shouldOpen, closeNavMenu }) {
             </Link>
             <Link href="/executives">
               <a className="text-lg py-2 border-b border-custom-gray">
-                Executives
+                The Executives
               </a>
             </Link>
             <Link href="/representatives">
               <a className="text-lg py-2 border-b border-custom-gray">
-                The SU Representative Council
+                The SU Representatives Council
               </a>
             </Link>
             <Link href="/su_corner">
               <a className="text-lg py-2 border-b border-custom-gray">
-                Thr Student Union Press Club (SUPC)
+                The Students' Union Press Club (SUPC)
               </a>
             </Link>
             <Link href="/about">
               <a className="text-lg py-2 border-b border-custom-gray">
-                About UI Student Union
+                About UI Students' Union
               </a>
             </Link>
           </div>
