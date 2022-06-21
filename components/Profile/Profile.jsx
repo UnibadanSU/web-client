@@ -21,7 +21,7 @@ const Profile = ({details}) => {
       layout="fill"
         src={imageUrl}
         alt={details.name}
-        className="mx-auto rounded-circle h-[7.563rem] w-[7.563rem]"
+        className="mx-auto rounded-circle h-[10.563rem] w-[10.563rem]"
       /></div>
       <p className="text-center text-[15px]">{details.name}</p>
       <p className="text-center text-custom-red text-sm">{details.position}</p>
