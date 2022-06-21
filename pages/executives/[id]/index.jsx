@@ -1,10 +1,29 @@
-import { getExecutives } from "../../../api/executives";
+import { getExecutives, getExecutive } from "../../../api/executives";
+import Layout from "../../../components/common/Layout";
 import Profile from "../../../components/Profile/Profile";
+import { useRouter } from "next/router";
 
 const Executive = ({executive})=>{
+  const router = useRouter()
+  const getDescription = (body, limit)=>{
+    return body.length > limit ? body.substr(0, limit-1) + '...' : body
+  }
+  const seo = {
+    title: executive ? executive.attributes.name : '',
+    description: 'jdkdk'
+    // shareImage: executive ? imageUrl : "",
+  };
     console.log(executive)
+    if(router.isFallback){
+      return (
+        <div>Loading</div>
+      )
+    }
     return (
-        <Profile/>
+      <Layout seo = {seo} >
+         <Profile details = {executive.attributes} />
+      </Layout>
+       
     )
 }
 
@@ -21,7 +40,7 @@ export async function getStaticPaths() {
   
   export async function getStaticProps({ params }) {
     const { id } = params;
-    let executive = await getExecutives(id);
+    let executive = await getExecutive(id);
     if (!executive) {
       return {
         notFound: true,

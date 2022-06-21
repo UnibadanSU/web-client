@@ -18,7 +18,7 @@ export default function SUProfile({ profile, link, id }) {
       <p className="text-center text-[15px]">{profile.name}</p>
       <p className="text-center text-custom-red text-sm">{profile.position}</p>
       <p className="text-center text-custom-red text-sm">{profile.contact}</p>
-      <p className="text-center text-custom-red text-sm">{profile.about && profile.about}</p>
+    
     </div>
     </Link>
    
