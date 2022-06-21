@@ -10,7 +10,7 @@ const Executive = ({executive})=>{
   }
   const seo = {
     title: executive ? executive.attributes.name : '',
-    description: 'jdkdk'
+    description: executive && executive.about ? getDescription(executive.about): ''
     // shareImage: executive ? imageUrl : "",
   };
     console.log(executive)
