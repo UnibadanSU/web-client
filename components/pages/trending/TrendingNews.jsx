@@ -101,7 +101,6 @@ export default function TrendingNews({articles, title, link}) {
   //     link: "#",
   //   },
   // ];
-  console.log(news)
   return (
     <div className="flex flex-col items-center mx-[16px] mt-[80px] mb-[80px] space-y-[37px]">
       {news && news.map((info) => <News key={uuid()} {...info} />)}

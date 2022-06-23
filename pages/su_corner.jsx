@@ -9,7 +9,6 @@ export default function SU_Corner({articles}) {
     description:
       "The official website of the University of Ibadan Student's Union",
   };
-  console.log(articles)
  
   return (
     <Layout seo={seo}>

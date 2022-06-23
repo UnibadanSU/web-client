@@ -32,7 +32,7 @@ export const getArticle = async (slug) => {
 
 export const getAllArticles = async () => {
   try {
-    const url = "/articles/?populate=*";
+    const url = "/articles/?populate=*&sort[0]=publishedAt%3Adesc";
     const response = await requestInstance.get(url);
     console.log(response)
     if (response.data) {
