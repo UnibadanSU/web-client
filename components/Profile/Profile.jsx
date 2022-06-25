@@ -28,7 +28,7 @@ const Profile = ({ details }) => {
           <p className="text-center text-custom-red text-sm">
             {details.contact}
           </p>
-          <MarkdownText>{details.about && details.about}</MarkdownText>
+          {details.about && <MarkdownText>{details.about}</MarkdownText>}
         </div>
       </div>
       {/* </ProfileContainer> */}
