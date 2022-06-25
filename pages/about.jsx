@@ -9,7 +9,7 @@ export default function AboutPage({ aboutPage }) {
     description:
       "The official website of the University of Ibadan Student's Union",
   };
-  console.log(aboutPage)
+
   return (
     <Layout seo={seo}>
       <PageIntro text="about ui student union" />
@@ -24,6 +24,6 @@ export async function getStaticProps() {
     props: {
       aboutPage: data ? data : {},
     },
-    revalidate: 1000000
+    revalidate: 1000000,
   };
 }

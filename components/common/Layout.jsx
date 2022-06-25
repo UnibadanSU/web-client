@@ -4,12 +4,17 @@ import Seo from "../seo";
 
 const Layout = ({ children, seo }) => {
   return (
-    <div className="min-h-[100vh] flex flex-col">
+    <>
       <Seo seo={seo} />
-      <Navigation />
-      <div className="relative top-14 mb-8">{children}</div>
-      <Footer />
-    </div>
+      <div className="min-h-[100vh] flex flex-col">
+        <Navigation />
+        <div className="flex-1 relative top-7  flex  justify-between flex-col  mb-8">
+          {children}
+
+          <Footer />
+        </div>
+      </div>
+    </>
   );
 };
 
