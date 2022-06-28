@@ -73,7 +73,7 @@ export default function NavigationMenu({ shouldOpen, closeNavMenu }) {
             </Link>
             <Link href="/about">
               <a className="text-lg py-2 border-b border-custom-gray">
-              {`About UI Students' Union`}
+                {`About UI Students' Union`}
               </a>
             </Link>
           </div>
@@ -110,6 +110,14 @@ export default function NavigationMenu({ shouldOpen, closeNavMenu }) {
                   width="30px"
                   height="30px"
                   alt="whatsapp"
+                />
+              </a>
+              <a href="https://www.youtube.com/channel/UCekzxNtQZyLCs737qlRBlXw">
+                <Image
+                  src="/youtube.svg"
+                  width="30px"
+                  height="30px"
+                  alt="youtube"
                 />
               </a>
             </div>
