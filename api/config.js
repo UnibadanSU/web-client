@@ -11,6 +11,5 @@ const authToken =
     : process.env.NEXT_PUBLIC_AUTH_TOKEN;
 
 export const requestInstance = axios.create({
-  baseURL,
-  headers: { Authorization: `Bearer ${authToken}` },
+  baseURL
 });
